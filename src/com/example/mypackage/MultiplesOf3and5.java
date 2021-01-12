@@ -4,7 +4,7 @@ package com.example.mypackage;
 import java.util.ArrayList;
         import java.util.Scanner;
 
-public class FirstTask {
+public class MultiplesOf3and5 {
 
     private static final int sum = 0;
 

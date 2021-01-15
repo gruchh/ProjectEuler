@@ -1,12 +1,22 @@
-package com.example.mypackage;
-
+package net.projeceuler;
 
 import java.util.ArrayList;
-        import java.util.Scanner;
+import java.util.Scanner;
 
 public class MultiplesOf3and5 {
 
     private static final int sum = 0;
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ile liczb?");
+        int numberToSum = sc.nextInt();
+        ArrayList<Integer> generatedNumbers = findAllNumbers(numberToSum);
+        showNumbers(generatedNumbers);
+        System.out.println(showSum(generatedNumbers));
+
+    }
 
     public static ArrayList<Integer> findAllNumbers(int Maximum) {
 
@@ -34,17 +44,6 @@ public class MultiplesOf3and5 {
         for (int k : generatedNumbers) {
             System.out.println(k);
         }
-    }
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ile liczb?");
-        int numberToSum = sc.nextInt();
-        ArrayList<Integer> generatedNumbers = findAllNumbers(numberToSum);
-        showNumbers(generatedNumbers);
-        System.out.println(showSum(generatedNumbers));
-
     }
 
 }

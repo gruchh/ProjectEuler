@@ -3,7 +3,7 @@ package net.projeceuler;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MultiplesOf3and5 {
+public class MultiplesOf3And5 {
 
     private static final int sum = 0;
 

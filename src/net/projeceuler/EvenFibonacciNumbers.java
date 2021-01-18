@@ -15,6 +15,7 @@ public class EvenFibonacciNumbers {
         int fibboMaxValue = sumValuesUnderDeclared(maxValue);
 
         System.out.println("Suma wszystkich wyrazow ciagu podzielnych przez 2 i mniejszych niz " + maxValue + " wynosi " + fibboMaxValue);
+
     }
 
     private static int sumValuesUnderDeclared(int MaxValue) {
@@ -24,17 +25,17 @@ public class EvenFibonacciNumbers {
         ArrayValues[1] = 1;
         ArrayValues[2] = 0;
         int sum = 0;
-        do {
+
+        while (ArrayValues[2] < MaxValue) {
             ArrayValues[2] = ArrayValues[0] + ArrayValues[1];
 
-            if (ArrayValues[2] % 2 == 0 && ArrayValues[2] != MaxValue) {
+            if (ArrayValues[2] % 2 == 0) {
                 sum += ArrayValues[2];
             }
 
             ArrayValues[0] = ArrayValues[1];
             ArrayValues[1] = ArrayValues[2];
         }
-        while (ArrayValues[2] < MaxValue);
 
         return sum;
     }

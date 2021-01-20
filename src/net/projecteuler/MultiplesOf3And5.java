@@ -1,4 +1,4 @@
-package net.projeceuler;
+package net.projecteuler;
 
 import java.util.ArrayList;
 import java.util.Scanner;

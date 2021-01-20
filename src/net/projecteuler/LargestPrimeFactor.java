@@ -3,18 +3,9 @@
  * What is the largest prime factor of the number 600851475143 ?
  */
 
-package net.projeceuler;
+package net.projecteuler;
 
 public class LargestPrimeFactor {
-
-    private static int findDivider(long declaredValue) {
-        int i = 2;
-
-        while (declaredValue % i != 0) {
-            i++;
-        }
-        return i;
-    }
 
     public static void main(String[] args) {
 
@@ -29,5 +20,14 @@ public class LargestPrimeFactor {
 
         System.out.println("Najwiekszy dzielnik to: " + divider);
 
+    }
+
+    private static int findDivider(long declaredValue) {
+        int i = 2;
+
+        while (declaredValue % i != 0) {
+            i++;
+        }
+        return i;
     }
 }

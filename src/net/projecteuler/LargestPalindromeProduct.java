@@ -4,7 +4,7 @@
  * Find the largest palindrome made from the product of two 3-digit numbers.
  */
 
-package net.projeceuler;
+package net.projecteuler;
 
 public class LargestPalindromeProduct {
 

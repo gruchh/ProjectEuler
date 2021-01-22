@@ -11,26 +11,35 @@ package net.projecteuler;
 
 public class SpecialPythagoreanTriplet {
 
+    static final double DEFAULT_a = 1;
+    static final double DEFAULT_b = 2;
+    static final double DEFAULT_c = 3;
+
     public static void main(String[] args) {
 
-        double a = 1;
-        double b = 2;
-        double c = 3;
+        double a = DEFAULT_a;
+        double b = DEFAULT_b;
+        double c = DEFAULT_c;
         boolean finalResult = false;
         int maxValue = 1000;
 
-        for (a = 1; !finalResult; a++) {
-            b = 2;
-            c = 3;
+        while (!finalResult) {
+            resetVariables(b, c);
             for (b = 2; a + b + c < maxValue; b++) {
                 c = countHypotenuseOfATriangle(a, b);
 
                 if (checkValues(a, b, c, maxValue)) {
-                    System.out.println("Znaleziono wartości zmiennych spełniające zależność: \n"+"a: " + a + " b: " + b + " c: " + c);
+                    System.out.println("Znaleziono wartości zmiennych spełniające zależność: \n" + "a: " + a + " b: " + b + " c: " + c);
                     finalResult = true;
                 }
             }
+            a++;
         }
+    }
+
+    public static void resetVariables(double b, double c) {
+        b = DEFAULT_b;
+        c = DEFAULT_c;
     }
 
     public static double countHypotenuseOfATriangle(double a, double b) {
@@ -38,12 +47,6 @@ public class SpecialPythagoreanTriplet {
     }
 
     public static boolean checkValues(double a, double b, double c, double maxValue) {
-
-        if (a + b + c == maxValue) {
-            return true;
-        }
-        return false;
+        return a + b + c == maxValue;
     }
-
-
 }

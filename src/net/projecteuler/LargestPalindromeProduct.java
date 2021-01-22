@@ -14,7 +14,7 @@ public class LargestPalindromeProduct {
         for (int i = 999; i >= 100; i--) {
             for (int j = 999; j >= 100; j--) {
                 generatedResult = i * j;
-                if (checkPalindrome(generatedResult) == true && generatedResult > maxPalindromeValue) {
+                if (checkPalindrome(generatedResult) && generatedResult > maxPalindromeValue) {
                     maxPalindromeValue = generatedResult;
                 }
             }

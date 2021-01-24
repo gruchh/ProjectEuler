@@ -20,17 +20,17 @@ public class SpecialPythagoreanTriplet {
         double a = DEFAULT_a;
         double b = DEFAULT_b;
         double c = DEFAULT_c;
-        boolean finalResult = false;
+        boolean finalResultReached = false;
         int maxValue = 1000;
 
-        while (!finalResult) {
+        while (!finalResultReached) {
             resetVariables(b, c);
             for (b = 2; a + b + c < maxValue; b++) {
                 c = countHypotenuseOfATriangle(a, b);
 
-                if (checkValues(a, b, c, maxValue)) {
+                if (isSumOfTriangleSidesEqualsDeclaredkValue(a, b, c, maxValue)) {
                     System.out.println("Znaleziono wartości zmiennych spełniające zależność: \n" + "a: " + a + " b: " + b + " c: " + c);
-                    finalResult = true;
+                    finalResultReached = true;
                 }
             }
             a++;
@@ -46,7 +46,7 @@ public class SpecialPythagoreanTriplet {
         return Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
     }
 
-    public static boolean checkValues(double a, double b, double c, double maxValue) {
+    public static boolean isSumOfTriangleSidesEqualsDeclaredkValue(double a, double b, double c, double maxValue) {
         return a + b + c == maxValue;
     }
 }

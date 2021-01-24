@@ -12,32 +12,31 @@ public class EvenFibonacciNumbers {
 
     public static void main(String[] args) {
         int maxValue = 4000000;
-        int fibboMaxValue = sumValuesUnderDeclared(maxValue);
+        int fibboMaxValue = sumValuesUnderDeclaredValue(maxValue);
 
         System.out.println("Suma wszystkich wyrazow ciagu podzielnych przez 2 i mniejszych niz " + maxValue + " wynosi " + fibboMaxValue);
 
     }
 
-    private static int sumValuesUnderDeclared(int MaxValue) {
+    private static int sumValuesUnderDeclaredValue(int MaxValue) {
 
         int[] ArrayValues = new int[3];
         ArrayValues[0] = 1;
         ArrayValues[1] = 1;
-        ArrayValues[2] = 0;
-        int sum = 0;
+        int sumOfEvenNumbers = 0;
 
         while (ArrayValues[2] < MaxValue) {
             ArrayValues[2] = ArrayValues[0] + ArrayValues[1];
 
             if (ArrayValues[2] % 2 == 0) {
-                sum += ArrayValues[2];
+                sumOfEvenNumbers += ArrayValues[2];
             }
 
             ArrayValues[0] = ArrayValues[1];
             ArrayValues[1] = ArrayValues[2];
         }
 
-        return sum;
+        return sumOfEvenNumbers;
     }
 
 }

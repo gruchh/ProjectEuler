@@ -1,5 +1,7 @@
 package net.projecteuler;
 
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -82,7 +84,7 @@ public class LargestProductInAGrid {
 
                 for (int k = 0; k < stringLength; k++) {
                     actualDiagonalResultRight *= records.get(i + k).get(j + k);
-                    actualDiagonalResultLeft *= records.get(i + (stringLength-1)).get(j + k);
+                    actualDiagonalResultLeft *= records.get(i + (stringLength-1)-k).get(j+k);
                 }
 
                 if (actualDiagonalResultRight > biggestDiagonalResultRight) {
@@ -95,7 +97,7 @@ public class LargestProductInAGrid {
 
             }
         }
-        return "Maksymalna wartosc 4-cyfrowej przekatniej (prawo): " + biggestDiagonalResultRight + ", " + biggestDiagonalResultLeft + " (lewo)";
+        return "Maksymalna wartosc 4-cyfrowej przekatniej: " + biggestDiagonalResultRight + " (prawo), " + biggestDiagonalResultLeft + " (lewo)";
     }
 
     private static List<Integer> getValuesFromLineSeparatedBySpace(String givenCodeLine) {

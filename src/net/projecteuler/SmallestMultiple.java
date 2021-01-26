@@ -8,16 +8,16 @@ package net.projecteuler;
 public class SmallestMultiple {
 
     public static void main(String[] args) {
-        int maxValue = 1;
-        boolean reminderWithoutAnyReminder = false;
+        int valueWithoutAnyRemainder = 1;
+        boolean foundNumberWithoutAnyRemainder = false;
 
-        while(!reminderWithoutAnyReminder) {
+        while(!foundNumberWithoutAnyRemainder) {
 
-            if (isAnyReminder(maxValue)) {
-                System.out.println(maxValue);
-                reminderWithoutAnyReminder = true;
+            if (isAnyReminder(valueWithoutAnyRemainder)) {
+                System.out.println(valueWithoutAnyRemainder);
+                foundNumberWithoutAnyRemainder = true;
             } else {
-                maxValue++;
+                valueWithoutAnyRemainder++;
             }
         }
     }

@@ -1,6 +1,5 @@
 package net.projecteuler;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -40,7 +39,7 @@ public class LargestProductInAGrid {
         }
 
         System.out.println(getBiggestWynikLiczbyObok(stringLength, matrixLength, convertedListOfNumbers));
-        System.out.println(getBiggestWynik(stringLength, matrixLength, convertedListOfNumbers));
+        System.out.println(getBiggestResult(stringLength, matrixLength, convertedListOfNumbers));
     }
 
     private static String getBiggestWynikLiczbyObok(int stringLength, int matrixLength, List<List<Integer>> records) {
@@ -70,25 +69,33 @@ public class LargestProductInAGrid {
     }
 
 
-    private static String getBiggestWynik(int stringLength, int matrixLength, List<List<Integer>> records) {
-        int actualDiagonalResult = 1;
-        int biggestDiagonalResult = 1;
-        int z = 1;
-        int l = 1;
+    private static String getBiggestResult(int stringLength, int matrixLength, List<List<Integer>> records) {
+        int actualDiagonalResultRight = 1;
+        int actualDiagonalResultLeft = 1;
+        int biggestDiagonalResultRight = 1;
+        int biggestDiagonalResultLeft = 1;
+
         for (int i = 0; i <= matrixLength - stringLength; i++) {
             for (int j = 0; j <= matrixLength - stringLength; j++) {
-                actualDiagonalResult = 1;
+                actualDiagonalResultRight = 1;
+                actualDiagonalResultLeft = 1;
 
                 for (int k = 0; k < stringLength; k++) {
-                    actualDiagonalResult *= records.get(i + k).get(j + k);
-
-                    if (actualDiagonalResult > biggestDiagonalResult) {
-                        biggestDiagonalResult = actualDiagonalResult;
-                    }
+                    actualDiagonalResultRight *= records.get(i + k).get(j + k);
+                    actualDiagonalResultLeft *= records.get(i + (stringLength-1)).get(j + k);
                 }
+
+                if (actualDiagonalResultRight > biggestDiagonalResultRight) {
+                    biggestDiagonalResultRight = actualDiagonalResultRight;
+                }
+
+                if (actualDiagonalResultLeft > biggestDiagonalResultLeft) {
+                    biggestDiagonalResultLeft = actualDiagonalResultLeft;
+                }
+
             }
         }
-        return "Maksymalna wartosc 4-cyfrowej przekatniej: " + biggestDiagonalResult;
+        return "Maksymalna wartosc 4-cyfrowej przekatniej (prawo): " + biggestDiagonalResultRight + ", " + biggestDiagonalResultLeft + " (lewo)";
     }
 
     private static List<Integer> getValuesFromLineSeparatedBySpace(String givenCodeLine) {

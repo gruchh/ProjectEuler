@@ -1,7 +1,5 @@
 package net.projecteuler;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -84,7 +82,7 @@ public class LargestProductInAGrid {
 
                 for (int k = 0; k < stringLength; k++) {
                     actualDiagonalResultRight *= records.get(i + k).get(j + k);
-                    actualDiagonalResultLeft *= records.get(i + (stringLength-1)-k).get(j+k);
+                    actualDiagonalResultLeft *= records.get(i + (stringLength - 1) - k).get(j + k);
                 }
 
                 if (actualDiagonalResultRight > biggestDiagonalResultRight) {

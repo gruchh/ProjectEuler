@@ -3,7 +3,7 @@
  * What is the largest prime factor of the number 600851475143 ?
  */
 
-package net.projecteuler;
+package net.projecteuler.Task_3;
 
 public class LargestPrimeFactor {
 

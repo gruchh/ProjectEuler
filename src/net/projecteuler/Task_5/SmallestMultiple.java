@@ -3,7 +3,7 @@
  *
  * What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 */
-package net.projecteuler;
+package net.projecteuler.Task_5;
 
 public class SmallestMultiple {
 

@@ -6,7 +6,7 @@
  * find the sum of the even-valued terms.
  */
 
-package net.projecteuler;
+package net.projecteuler.Task_2;
 
 public class EvenFibonacciNumbers {
 

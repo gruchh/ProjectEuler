@@ -1,4 +1,4 @@
-package net.projecteuler;
+package net.projecteuler.Task_11;
 
 import java.util.ArrayList;
 import java.util.List;

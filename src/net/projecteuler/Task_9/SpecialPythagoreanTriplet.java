@@ -7,7 +7,7 @@
  * There exists exactly one Pythagorean triplet for which a + b + c = 1000.
  */
 
-package net.projecteuler;
+package net.projecteuler.Task_9;
 
 public class SpecialPythagoreanTriplet {
 

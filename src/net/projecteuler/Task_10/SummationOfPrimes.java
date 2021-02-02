@@ -3,7 +3,7 @@
  * Find the sum of all the primes below two million.
 * */
 
-package net.projecteuler;
+package net.projecteuler.Task_10;
 
 public class SummationOfPrimes {
 

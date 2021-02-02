@@ -4,7 +4,7 @@
  *
  * */
 
-package net.projecteuler;
+package net.projecteuler.Task_7;
 
 public class TenThousandFirstPrime {
     public static void main(String[] args) {

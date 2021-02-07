@@ -4,11 +4,11 @@
  * 7 4
  * 2 4 6
  * 8 5 9 3
- * <p>
+ *
  * That is, 3 + 7 + 4 + 9 = 23.
- * <p>
+ *
  * Find the maximum total from top to bottom of the triangle below:
- * <p>
+ *
  * 75
  * 95 64
  * 17 47 82
@@ -24,7 +24,7 @@
  * 91 71 52 38 17 14 91 43 58 50 27 29 48
  * 63 66 04 68 89 53 67 30 73 16 69 87 40 31
  * 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
- * <p>
+ *
  * NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. However, Problem 67, is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)
  */
 
@@ -39,7 +39,7 @@ public class MaximumPathSumI {
 
     public static void main(String[] args) {
 
-        String declaredTraignle = "        75\n" +
+        String declaredTaskTraignle = "        75\n" +
                 "        95 64\n" +
                 "        17 47 82\n" +
                 "        18 35 87 10\n" +
@@ -55,62 +55,40 @@ public class MaximumPathSumI {
                 "        63 66 04 68 89 53 67 30 73 16 69 87 40 31\n" +
                 "        04 62 98 27 23 09 70 98 73 93 38 53 60 04 23";
 
-        List<List<String>> declaredTriangleAsList = new ArrayList<>();
         List<List<Integer>> declaredTriangleAsListInteger = new ArrayList<>();
-        Scanner sc = new Scanner(declaredTraignle);
-//        System.out.println(declaredTraignle.lines());
+        Scanner everyLineScanner = new Scanner(declaredTaskTraignle);
+        int scanRowsNumbers = 0;
 
-        int maxScanList = 0;
-
-        while (sc.hasNextLine()) {
-            declaredTriangleAsListInteger.add(addArray(sc.nextLine()));
-            maxScanList++;
+        while (everyLineScanner.hasNextLine()) {
+            declaredTriangleAsListInteger.add(makeAnIntegerArrayFromString(everyLineScanner.nextLine()));
+            scanRowsNumbers++;
         }
-        System.out.println(declaredTriangleAsListInteger);
 
-        List<Integer> nowaMatryca = new ArrayList<>();
-        int temporaryNewValue = 0;
-        System.out.println("Max scan:" + maxScanList);
+        int biggestValueFromAddingPossibleValues = 0;
 
-        for (int i = maxScanList-1; i > 0; i--) {
-            System.out.println("---");
+        for (int i = scanRowsNumbers-1; i > 0; i--) {
             for (int j = 0; j < declaredTriangleAsListInteger.get(i - 1).size(); j++) {
-                System.out.println("1) Rzad: " + (i - 1) + " kolumna: " + j);
-                System.out.println("2) Rzad: " + i + " Kolumna: " + j + " and " + (j + 1));
-                System.out.println(declaredTriangleAsListInteger.get(i).get(j));
-                System.out.println(declaredTriangleAsListInteger.get(i).get(j+1));
 
                 if (declaredTriangleAsListInteger.get(i).get(j) > declaredTriangleAsListInteger.get(i).get(j + 1)) {
-                    temporaryNewValue = declaredTriangleAsListInteger.get(i-1).get(j) + declaredTriangleAsListInteger.get(i).get(j);
-                    System.out.println("1");
+                    biggestValueFromAddingPossibleValues = declaredTriangleAsListInteger.get(i-1).get(j) + declaredTriangleAsListInteger.get(i).get(j);
                 } else {
-                    temporaryNewValue = declaredTriangleAsListInteger.get(i-1).get(j) + declaredTriangleAsListInteger.get(i).get(j+1);
-                    System.out.println("2");
+                    biggestValueFromAddingPossibleValues = declaredTriangleAsListInteger.get(i-1).get(j) + declaredTriangleAsListInteger.get(i).get(j+1);
                 }
-                nowaMatryca.add(temporaryNewValue);
+                declaredTriangleAsListInteger.get(i-1).set(j, biggestValueFromAddingPossibleValues);
             }
-//            System.out.println("Stara: " + declaredTriangleAsListInteger.get(i));
-//            System.out.println("Nowa: " + nowaMatryca);
-//            declaredTriangleAsListInteger.remove(i);
-//            declaredTriangleAsListInteger.remove(i-1);
-            System.out.println(nowaMatryca);
-            List<Integer> a= new ArrayList<>();
-            System.out.println(temporaryNewValue);
-            declaredTriangleAsListInteger.set(i-1, a);
-            nowaMatryca.clear();
-            System.out.println(declaredTriangleAsListInteger);
-//            System.out.println(declaredTriangleAsListInteger.get(0).get(0));
-
+            declaredTriangleAsListInteger.remove(i);
         }
+
+        System.out.println("Najwieksza mozliwa do uzyskania wartosc to: " + declaredTriangleAsListInteger.get(0).get(0));
     }
 
-    private static List<Integer> addArray(String x) {
-        Scanner sc1 = new Scanner(x);
-        List<Integer> intLine = new ArrayList<>();
+    private static List<Integer> makeAnIntegerArrayFromString(String stringLine) {
+        Scanner stringValuesScanner = new Scanner(stringLine);
+        List<Integer> integerArray = new ArrayList<>();
 
-        while (sc1.hasNext()) {
-            intLine.add(Integer.parseInt(sc1.next()));
+        while (stringValuesScanner.hasNext()) {
+            integerArray.add(Integer.parseInt(stringValuesScanner.next()));
         }
-        return intLine;
+        return integerArray;
     }
 }
